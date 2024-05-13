@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "NODE_ENV=production webpack --mode production"
+    "build": "set NODE_ENV=production webpack --mode production"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ilyaRozhkov/frontend-project-11.git"
   },
-  "author": "ilyaRozhkov",
+  "author": "krupoderova Elena",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ilyaRozhkov/frontend-project-11issues"
