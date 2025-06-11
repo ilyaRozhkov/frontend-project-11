@@ -17,6 +17,7 @@
   "scripts": {
     "start": "webpack serve --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx webpack"
   },
   "author": "Maksim Rastoskuev",
   "license": "ISC",
