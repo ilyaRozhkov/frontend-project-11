@@ -1,7 +1,7 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-module.exports = {
+export default {
   performance: {
     maxAssetSize: 500000,
     maxEntrypointSize: 500000,
