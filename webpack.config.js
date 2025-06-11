@@ -1,7 +1,7 @@
-import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-export default {
+module.exports = {
   performance: {
     maxAssetSize: 500000,
     maxEntrypointSize: 500000,
@@ -10,7 +10,7 @@ export default {
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve('public'),
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
