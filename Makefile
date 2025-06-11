@@ -1,17 +1,14 @@
 develop:
-	npx webpack serve
+	npx webpack serve --no-client-overlay
 
 install:
 	npm ci
 
 build:
-	npm run build
+	NODE_ENV=production npx webpack
 
 test:
 	npm test
 
 lint:
 	npx eslint .
-
-publish:
-	npm publish --dry-run
