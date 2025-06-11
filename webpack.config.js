@@ -1,41 +1,35 @@
-import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-export default {
-  mode: process.env.NODE_ENV || 'development',
+module.exports = {
+  performance: {
+    maxAssetSize: 500000,
+    maxEntrypointSize: 500000,
+  },
+  mode: 'production',
   entry: './src/index.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
-      },
-      {
-        test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
-      },
-      {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-        type: 'asset',
+        test: /.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
       },
     ],
   },
-  devServer: {
-    host: 'localhost',
-    port: 8080,
-    open: true,
-    client: {
-      overlay: false,
-    },
-  },
   plugins: [
-    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
-      template: 'index.html',
+      template: './index.html',
     }),
   ],
-  output: {
-    path: path.resolve('public'),
+  resolve: {
+    extensions: ['.js', '.scss'],
   },
 };
